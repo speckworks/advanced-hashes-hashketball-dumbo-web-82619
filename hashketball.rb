@@ -220,8 +220,9 @@ def player_numbers(team_name)
     team_name = team_data[:team_name]
     team_name.each do |details|
       stats << details[:number] 
+      return stats
      end
-  stats
+  end
 end
 
 #   def shoe_size(player_name)
