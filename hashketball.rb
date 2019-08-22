@@ -299,3 +299,18 @@ def most_points_scored
   end 
   points.max_by{|k,v| v}[0]
 end 
+
+def winning_team
+  home_points = []
+  away_points = []
+       home_players = game_hash[:home][:players]
+       home_players.each do |details|
+         home_points << details[:points]
+      end 
+      away_players = game_hash[:away][:players]
+      away_players.each do |details|
+        away_points << details[:points]
+      end
+ (home_points.reduce(&:+) > away_points.reduce(&:+)) ?  game_hash[:home][:team_name] : game_hash[:away][:team_name]
+ 
+end 
