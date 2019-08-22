@@ -216,11 +216,20 @@ end
 
 def player_numbers(team_name)
   stats = {}
-  game_hash.each do |team_name, number|
-    stats<<{:team_name =>"", :number=>""}
-  end
+  game_hash.each do |location, team_data|
+    team_name = team_data[:team_name]
+    team_name.each do |details|
+      stats << details[:number] 
+     end
   stats
 end
 
-  
+  def shoe_size(player_name)
+  game_hash.each do |location, team_data| 
+    players = team_data[:players]
+      players.each do |details|
+        return details[:shoe] if details[:player_name] == player_name
+    end
+  end
+end
   
