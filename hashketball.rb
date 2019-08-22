@@ -253,6 +253,7 @@ game_hash.each do |location, team_data|
     return details[:number][:shoe][:points][:rebounds][:assists][:steals][:blocks][:slam_dunks] if details[player_name] == player_name
     end
   end
-
+details
+end
 
   
