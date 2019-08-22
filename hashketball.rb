@@ -266,3 +266,24 @@ end
   end 
   player_info.select{|k,v| k != :player_name}
 end 
+
+
+def big_shoe_rebounds
+  shoes = {}
+  game_hash.each do |location, team_data|
+      players = team_data[:players]
+      players.each do |details|
+        name = details[:player_name]
+        shoes[name] = details[:shoe]
+      end 
+    end 
+    big_shoe = shoes.sort_by{|k,v| v}
+    target = big_shoe[-1]
+    
+    game_hash.each do |location, team_data|
+      players = team_data[:players]
+      players.each do |details|
+        return details[:rebounds] if target.include?(details[:player_name])
+      end 
+    end
+end
