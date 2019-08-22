@@ -216,11 +216,11 @@ end
 
 def player_numbers(team_name)
   stats = {}
-  game_hash.each {|team_name, number|
-    stats<<{:team_name =>"", :number=>""}}
+  game_hash.each do |team_name, number|
+    stats<<{:team_name =>"", :number=>""}
   end
   stats
-
+end
 
   
   
