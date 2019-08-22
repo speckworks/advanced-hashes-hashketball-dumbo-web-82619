@@ -314,3 +314,14 @@ def winning_team
  (home_points.reduce(&:+) > away_points.reduce(&:+)) ?  game_hash[:home][:team_name] : game_hash[:away][:team_name]
  
 end 
+
+def player_with_longest_name
+  names = []
+   game_hash.each do |location, team_data|
+    players = team_data[:players]
+      players.each do |details|
+      names << details[:player_name]
+    end
+  end 
+  names.max_by(&:length)
+end 
