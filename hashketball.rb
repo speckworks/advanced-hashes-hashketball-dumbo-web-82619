@@ -250,5 +250,9 @@ player_stats ={}
 game_hash.each do |location, team_data|
   players= team_data[:players]
   players.each do |details|
-    return details[:number][:shoe][:points][:rebounds][:assists][ste]
+    return details[:number][:shoe][:points][:rebounds][:assists][:steals][:blocks][:slam_dunks] if details[player_name] == player_name
+  end
+end
+end
+
   
