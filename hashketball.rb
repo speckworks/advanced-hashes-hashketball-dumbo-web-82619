@@ -220,7 +220,7 @@ def player_numbers(team_name)
     stats<<{:team_name =>"", :number=>""}}
   end
   stats
-end
+
 
   
   
