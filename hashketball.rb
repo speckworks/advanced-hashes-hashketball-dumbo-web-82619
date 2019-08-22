@@ -245,15 +245,24 @@ end
 #   end
 # end
 
-player_stats(player_name)
-player_stats ={}
-game_hash.each do |location, team_data|
-  players= team_data[:players]
-  players.each do |details|
-    return details[:number][:shoe][:points][:rebounds][:assists][:steals][:blocks][:slam_dunks] if details[player_name] == player_name
-    end
-  end
-details
-end
+# player_stats(player_name)
+# player_stats ={}
+# game_hash.each do |location, team_data|
+#   players= team_data[:players]
+#   players.each do |details|
+#     return details[:number][:shoe][:points][:rebounds][:assists][:steals][:blocks][:slam_dunks] if details[player_name] == player_name
+#     end
+#   end
+# details
+# end
 
-  
+  def player_stats(players_name)
+  player_info = nil 
+  game_hash.each do |location, team_data|
+    players = team_data[:players]
+    players.each do |details|
+      player_info = details if details[:player_name] == players_name
+    end
+  end 
+  player_info.select{|k,v| k != :player_name}
+end 
